@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,13 +25,13 @@ class Mission
     // titre
 
     /**
-     * @ORM\Column(type="text", length=50)
+     * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $available;
     // statut de la mission
 
     /**
-     * @@ORM\Column(type="text", length=256)
+     * @ORM\Column(type="text", length=256)
      */
     private $cdp;
     // chef de projet
@@ -50,6 +52,18 @@ class Mission
      * @ORM\Column(type="text", length=2048)
      */
     private $body;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Application", mappedBy="mission", orphanRemoval=true)
+     */
+    private $applications;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+        $this->available = true;
+        $this->applications = new ArrayCollection();
+    }
     // le descriptif
 
     // Getters and setters
@@ -86,12 +100,12 @@ class Mission
         $this->domain = $domain;
     }
 
-    public function getStatus(){
-        return $this->status;
+    public function getAvailable(){
+        return $this->available;
     }
 
-    public function setStatus($status){
-        $this->status = $status;
+    public function setAvailable($available){
+        $this->available = $available;
     }
 
     public function getCdp(){
@@ -105,5 +119,40 @@ class Mission
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection|Application[]
+     */
+    public function getApplications(): Collection
+    {
+        return $this->applications;
+    }
+
+    public function addApplication(Application $application): self
+    {
+        if (!$this->applications->contains($application)) {
+            $this->applications[] = $application;
+            $application->setMission($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApplication(Application $application): self
+    {
+        if ($this->applications->contains($application)) {
+            $this->applications->removeElement($application);
+            // set the owning side to null (unless already changed)
+            if ($application->getMission() === $this) {
+                $application->setMission(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(){
+        return $this->title;
     }
 }

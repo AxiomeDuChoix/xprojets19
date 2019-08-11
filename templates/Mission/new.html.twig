@@ -1,0 +1,33 @@
+{% extends 'Mission/base.html.twig' %}
+
+{% block title %} Candidater  {% endblock %}
+
+{% block body %}
+
+    {% if mission %}
+
+            {% if mission.available == true %}
+
+                <br>
+        
+                <center><h1 class="display-4">{{ mission.title }}</h1></center>
+
+                <br><br>
+
+                {{ form_start(form) }}
+
+                {{ form_widget(form) }}
+    
+                {{ form_end(form) }}
+
+        {% else %}
+            <br><br><br><br><br>
+            <center><h1 class="display-4">Mission attribuée :( </h1></center>
+        {% endif %}
+
+    {% else %}
+            <br><br><br><br><br>
+            <center><h1 class="display-4">Lien introuvable :( </h1></center>
+    {% endif %}
+
+{% endblock %}

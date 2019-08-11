@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<meta charset="utf-8">
 	<title>{% block title %}XProjets{% endblock %}</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
-	<meta property="og:title" content=""/>
-	<meta property="og:description" content=""/>
-	<meta property="og:type" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:image" content=""/>
+	<meta name="keywords" content="JE Polytechnique, expertise, excellence, ingénieur, entreprise, junior-entreprise, XProjets, École Polytechnique, Paris, Grande école, école d'ingénieurs, industrie, énergie, informatique" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="XProjets | Junior entreprise Polytechnique" />
+	<meta property="og:description" content="XProjets est la Junior-Entreprise de l'École polytechnique. Elle sera pour vous la porte d’entrée vers les compétences pluridisciplinaires de près de 2 000 étudiants de l’École polytechnique, première école d’ingénieurs de France." />
+	<meta property="og:url" content="http://www.xprojets.com/" />
+	<meta property="og:site_name" content="XProjets" />
 	
 	<link rel="icon" href="{{asset('img/favicon.gif')}}">
 
@@ -24,10 +26,8 @@
 	<link href="{{ asset('css/layout.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('css/activite.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('css/carousel.css') }}" rel="stylesheet" media="screen">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 	{% endblock %}
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -36,29 +36,29 @@
     <![endif]-->
 
 	{% block javascripts %}
-	<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/isotope.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.imagesloaded.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/flexslider.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/carousel.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/fancybox.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/twitter.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/modernizr.custom.79639.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.ba-cond.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.slitslider.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/excanvas.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.flot.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.flot.pie.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.flot.stack.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.flot.resize.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/script1.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jsAnim.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/anim.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.cloud-carousel.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.cycle.all.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.mousewheel.js') }}"></script>
+	<script src="{{ asset('js/jquery.js') }}"></script>
+	<script src="{{ asset('js/isotope.js') }}"></script>
+	<script src="{{ asset('js/jquery.imagesloaded.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/flexslider.js') }}"></script>
+	<script src="{{ asset('js/carousel.js') }}"></script>
+	<script src="{{ asset('js/fancybox.js') }}"></script>
+	<script src="{{ asset('js/twitter.js') }}"></script>
+	<script src="{{ asset('js/modernizr.custom.79639.js') }}"></script>
+	<script src="{{ asset('js/jquery.ba-cond.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.slitslider.js') }}"></script>
+	<script src="{{ asset('js/excanvas.js') }}"></script>
+	<script src="{{ asset('js/jquery.flot.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.flot.pie.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.flot.stack.js') }}"></script>
+	<script src="{{ asset('js/jquery.flot.resize.min.js') }}"></script>
+	<script src="{{ asset('js/script1.js') }}"></script>
+	<script src="{{ asset('js/jsAnim.js') }}"></script>
+	<script src="{{ asset('js/anim.js') }}"></script>
+	<script src="{{ asset('js/main.js') }}"></script>
+	<script src="{{ asset('js/jquery.cloud-carousel.js') }}"></script>
+	<script src="{{ asset('js/jquery.cycle.all.js') }}"></script>
+	<script src="{{ asset('js/jquery.mousewheel.js') }}"></script>
 	<script defer="defer" src="{{ asset('js/custom.js') }}"></script>
 	{% endblock %}
 
@@ -69,6 +69,5 @@
 	{% block body %}
     {% endblock %}
 	{% include "Com/footer.html.twig" %}
-</div>
 </body>
 </html>

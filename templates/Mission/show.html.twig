@@ -1,0 +1,60 @@
+{% extends 'Mission/base.html.twig' %}
+
+{% block title %} Voir Mission  {% endblock %}
+
+{% block body %}
+
+    {% if mission %}
+
+        {% if mission.available == true %}
+
+        <br>
+        
+        <center><h1 class="display-4">{{ mission.title }}</h1></center>
+
+        <br><br>
+
+            <table class="table table-striped">
+                <tbody>
+
+                <tr>
+                    <th style="text-align: left;"> Domaine </td>
+                    <td> {{ mission.domain }} </td>
+                </tr>
+
+                <tr>
+                    <th style="text-align: left;"> Descriptif </td>
+                    <td> {{ mission.body }} </td>
+                </tr>
+
+                <tr>
+                    <th style="text-align: left;"> Chef de Projet </td>
+                    <td> {{ mission.cdp }} </td>
+                </tr>
+
+                <tr>
+                    <th style="text-align: left;"> Ajouté le </td>
+                    <td> {{ mission.date | date('d-m-Y') }} </td>
+                </tr>
+
+            </tbody>
+            </table>
+
+            <br><br>
+            <center>
+                    <a href="/candidater/{{ mission.id }}" class="btn btn-dark center">Candidater</a>
+            </center>
+
+
+        {% else %}
+            <br><br><br><br><br>
+            <center><h1 class="display-4">Mission attribuée :( </h1></center>
+        {% endif %}
+
+    {% else %}
+            <br><br><br><br><br>
+            <center><h1 class="display-4">Lien Introuvable :( </h1></center>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <link rel="icon" href="/img/favicon.gif">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <style>
+
+      * {
+        font-family: 'Muli', sans-serif;
+      }
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+    </style>
+
+    {% block stylesheets %}{% endblock %}
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      {% block body %}{% endblock %}
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

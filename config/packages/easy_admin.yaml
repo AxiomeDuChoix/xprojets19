@@ -1,0 +1,71 @@
+easy_admin:
+    site_name: "<center><img src='../img/logos/logo-dark.png' alt='logo xprojets'><br> Portail CDP</center>"
+    design:
+      menu:
+        - {entity: 'Mission', icon: 'file'}
+        - {entity: 'Application', icon: 'address-card'}
+
+    entities:
+      Mission:
+        class: App\Entity\Mission
+        label: 'Missions'
+        list:
+          title: 'Missions'
+          fields:
+            - { property: 'date', label: "Date d'ajout"}
+            - { property: 'title', label: 'Intitulé'}
+            - { property: 'cdp', label: 'Chef de Projet'}
+            - { property: 'available', label: 'Disponible'}
+            - { property: 'applications', label: 'Nombre de candidatures'}
+          actions: ['new', 'show', 'edit', 'delete']
+          sort: ['date', 'DESC']
+        show:
+          title: 'Voir Mission'
+          fields:
+            - { property: 'title', label: 'Intitulé'}
+            - { property: 'cdp', label: 'Chef de Projet'}
+            - { property: 'domain', label: 'Domaine'}
+            - { property: 'body', label: 'Descriptif'}
+            - { property: 'date', label: "Date d'ajout"}
+            - { property: 'available', label: 'Disponible'}
+            - { property: 'applications', label: 'Candidatures'}
+        edit:
+          title: 'Modifier Mission'
+          fields:
+            - { property: 'title', label: 'Intitulé'}
+            - { property: 'cdp', label: 'Chef de Projet'}
+            - { property: 'domain', label: 'Domaine'}
+            - { property: 'body', label: 'Descriptif'}
+            - { property: 'available', label: 'Disponible'}
+        new:
+          title: 'Créer Mission'
+          fields:
+            - { property: 'title', label: 'Intitulé'}
+            - { property: 'cdp', label: 'Chef de Projet'}
+            - { property: 'domain', label: 'Domaine'}
+            - { property: 'body', label: 'Descriptif'}
+
+
+      Application:
+        class: App\Entity\Application
+        label: 'Candidatures'
+        list:
+          title: 'Candidatures'
+          fields:
+            - { property: 'mission'}
+            - { property: 'name', label: 'Nom'}
+            - { property: 'surname', label: 'Prenom'}
+            - { property: 'email', label: 'Adresse mail'}
+          actions: ['show']
+        show:
+          title: Candidature
+          fields:
+            - { property: 'mission'}
+            - { property: 'name', label: 'Nom'}
+            - { property: 'surname', label: 'Prenom'}
+            - { property: 'email', label: 'Adresse mail'}
+            - { property: 'coverletter', label: 'Motivation'}
+            - { property: 'cv', template: 'Cdp/cv.html.twig', base_path: '%app.path.application_cvs%', label: 'CV'}
+        disabled_actions: ['new', 'edit', 'delete']
+
+    

@@ -2,13 +2,24 @@
 <html>
     <head>
         <meta chearset="UTF-8">
-        <title>PCI</title>
+        <title>{% block title %} {% endblock %}</title>
+        <link rel="icon" href="/img/favicon.gif">
         <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <style>
+            *{
+                font-family: 'Muli', sans-serif;
+            }
+            a.nav-link, h1, th {
+                font-family: 'Montserrat', sans-serif;
+            }
+        </style>
         {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
-        {{ include('Pci/inc/navbar.html.twig') }}
+        {{ include('Mission/inc/navbar.html.twig') }}
 
         <div class="container">
             {% block body %}{% endblock %}

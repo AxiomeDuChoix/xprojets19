@@ -1,0 +1,57 @@
+{% extends 'Mission/base.html.twig' %}
+
+{% block title %} Interface Candidat  {% endblock %}
+
+{% block body %}
+
+        
+
+    {% if missions %}
+        <br>
+        
+            <center><h1 class="display-4">Missions disponibles</h1></center>
+
+        <br>
+        <table class="table data-grid">
+
+            <thead>
+                <tr>
+                    <th>Intitulé</th>
+                    <th>Date d'ajout</th>
+                    <th>Domaine</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for mission in missions %}
+
+                    {% if mission.available %}
+                        <tr>
+                            <td>{{ mission.title }}</td>
+                            <td>{{ mission.date | date('d-m-Y') }}</td>
+                            <td>{{ mission.domain }}</td>
+                            <td>
+                                <a href="/candidater/mission/{{ mission.id }}" class="btn btn-dark">
+                                Afficher
+                                </a>
+                                <a href="/candidater/{{ mission.id }}" class="btn btn-dark">
+                                Candidater
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    
+    {% else %}
+            <br><br><br><br><br>
+            <center><h1 class="display-4">Aucune mission n'est disponible :( </h1></center>
+    {% endif %}
+
+{% endblock %}
