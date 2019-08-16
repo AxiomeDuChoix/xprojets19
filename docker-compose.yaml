@@ -1,25 +1,26 @@
 version: "3"
 services:
-  mysql:
-    image: mysql:5.5
+  db:
+    image: mysql:5.7
     restart: on-failure
     ports:
       - "3306:3306"
+        #- "3333:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: pci
-    networks:
-      - mysql-compose-network
   
   adminer:
     image: adminer
-    restart: on-failure
     depends_on:
-      - mysql
+      - "db"
+    restart: on-failure
     ports:
       - "8080:8080"
-    networks:
-      - mysql-compose-network
+    environment:
+      ADMINER_DEFAULT_DB_DRIVER: mysql
+      ADMINER_DEFAULT_DB_HOST: db
+      ADMINER_DEFAULT_DB_NAME: pci
 
   nginx:
     image: nginx:1.15.3-alpine
@@ -37,12 +38,6 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     restart: on-failure
-    env_file:
-      - .env
+    depends_on:
+      - "db" 
     user: 1000:1000
-
-networks:
-  mysql-compose-network:
-    driver: bridge
-
-

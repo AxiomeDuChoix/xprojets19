@@ -27,9 +27,8 @@ COPY ./ /usr/src/app
 RUN PATH=$PATH:/usr/src/app/vendor/bin:bin
 
 RUN composer install
+RUN chmod -R 777 src/Migrations
 
 #RUN php bin/console doctrine:database:create
-
 #RUN php bin/console doctrine:migrations:diff
-
 #RUN php bin/console doctrine:migrations:migrate
